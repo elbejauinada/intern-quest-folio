@@ -107,8 +107,8 @@ const Contact = () => {
             <Card
               className="p-6 bg-gradient-subtle border-border flex flex-col justify-start"
               style={{
-                minHeight: `${contactInfo.length * 100}px`, // 80px per info item
-                maxWidth: "100%", // keeps it responsive
+                minHeight: `${contactInfo.length * 100}px`,
+                maxWidth: "100%",
               }}
             >
               <h3 className="text-xl font-bold mb-6">Contact Information</h3>
@@ -118,19 +118,21 @@ const Contact = () => {
                     <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0">
                       <info.icon className="w-5 h-5 text-primary-foreground" />
                     </div>
-                    <div>
+                    <div className="flex-1 min-w-0">
                       <p className="text-sm text-muted-foreground mb-1">
                         {info.label}
                       </p>
                       {info.link ? (
                         <a
                           href={info.link}
-                          className="text-foreground hover:text-primary transition-colors"
+                          className="text-foreground hover:text-primary transition-colors break-words"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-foreground">{info.value}</p>
+                        <p className="text-foreground break-words">
+                          {info.value}
+                        </p>
                       )}
                     </div>
                   </div>
