@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -12,63 +13,80 @@ const Contact = () => {
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
   });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Basic validation
+
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Missing Information",
         description: "Please fill in all required fields.",
-        variant: "destructive"
+        variant: "destructive",
       });
       return;
     }
 
-    // In a real application, you would send this to a backend
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+    // ✉️ EmailJS configuration
+    const serviceID = "service_0wg0y5k"; // Replace with your actual service ID
+    const templateID = "template_5pd3cjk"; // Replace with your template ID
+    const publicKey = "4mazwK7dwIlnho88d"; // Replace with your EmailJS public key
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: ""
-    });
-  };
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+    emailjs
+      .send(serviceID, templateID, templateParams, publicKey)
+      .then(() => {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        toast({
+          title: "Error Sending Message",
+          description: "Something went wrong. Please try again later.",
+          variant: "destructive",
+        });
+      });
   };
 
   const contactInfo = [
     {
       icon: Mail,
       label: "Email",
-      value: "your.email@example.com",
-      link: "mailto:your.email@example.com"
+      value: "nada.elbejauiahmimes@etu.uae.ac.ma",
+      link: "mailto:nada.elbejauiahmimes@etu.uae.ac.ma",
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+216 XX XXX XXX",
-      link: "tel:+216XXXXXXXX"
+      value: "+212 637415242",
+      link: "tel:+212637415242",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Tunisia",
-      link: null
-    }
+      value: "Morocco",
+      link: null,
+    },
   ];
 
   return (
@@ -86,18 +104,26 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Contact Info */}
           <div className="space-y-6">
-            <Card className="p-6 bg-gradient-subtle border-border">
+            <Card
+              className="p-6 bg-gradient-subtle border-border flex flex-col justify-start"
+              style={{
+                minHeight: `${contactInfo.length * 100}px`, // 80px per info item
+                maxWidth: "100%", // keeps it responsive
+              }}
+            >
               <h3 className="text-xl font-bold mb-6">Contact Information</h3>
-              <div className="space-y-4">
+              <div className="flex flex-col gap-4">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center flex-shrink-0">
                       <info.icon className="w-5 h-5 text-primary-foreground" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
+                      <p className="text-sm text-muted-foreground mb-1">
+                        {info.label}
+                      </p>
                       {info.link ? (
-                        <a 
+                        <a
                           href={info.link}
                           className="text-foreground hover:text-primary transition-colors"
                         >
@@ -115,8 +141,8 @@ const Contact = () => {
             <Card className="p-6 bg-card border-border">
               <h3 className="text-lg font-semibold mb-3">Availability</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Available for PFE internship starting February 2025. 
-                Open to both on-site and hybrid opportunities.
+                Available for PFE internship starting February 2026. Open to
+                both on-site and hybrid opportunities.
               </p>
             </Card>
           </div>
@@ -182,12 +208,7 @@ const Contact = () => {
                 />
               </div>
 
-              <Button 
-                type="submit" 
-                variant="hero" 
-                size="lg" 
-                className="w-full"
-              >
+              <Button type="submit" variant="hero" size="lg" className="w-full">
                 <Send className="w-5 h-5" />
                 Send Message
               </Button>

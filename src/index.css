@@ -2,80 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* 🎨 Slate & Coral — Creative Professional Theme
+   Cool slate gray foundations with warm coral accents for a
+   balanced, modern, and approachable professional portfolio.
 */
 
 @layer base {
   :root {
-    --background: 220 25% 10%;
-    --foreground: 210 40% 98%;
+    --background: 215 20% 11%; /* deep slate */
+    --foreground: 210 15% 97%; /* soft white */
 
-    --card: 220 20% 14%;
-    --card-foreground: 210 40% 98%;
+    --card: 215 18% 15%;
+    --card-foreground: 210 15% 97%;
 
-    --popover: 220 20% 14%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 215 18% 15%;
+    --popover-foreground: 210 15% 97%;
 
-    --primary: 250 100% 65%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 10 85% 65%; /* warm coral */
+    --primary-foreground: 215 20% 11%;
 
-    --secondary: 200 100% 50%;
-    --secondary-foreground: 220 25% 10%;
+    --secondary: 5 75% 60%; /* salmon coral */
+    --secondary-foreground: 215 20% 11%;
 
-    --muted: 220 15% 25%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 215 12% 24%; /* neutral slate */
+    --muted-foreground: 215 8% 68%;
 
-    --accent: 280 100% 70%;
-    --accent-foreground: 220 25% 10%;
+    --accent: 15 90% 70%; /* bright coral accent */
+    --accent-foreground: 215 20% 11%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 210 15% 97%;
 
-    --border: 220 15% 22%;
-    --input: 220 15% 22%;
-    --ring: 250 100% 65%;
+    --border: 215 15% 20%;
+    --input: 215 15% 20%;
+    --ring: 10 85% 65%;
 
     --radius: 0.75rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(250 100% 65%), hsl(280 100% 70%));
-    --gradient-secondary: linear-gradient(135deg, hsl(200 100% 50%), hsl(250 100% 65%));
-    --gradient-subtle: linear-gradient(180deg, hsl(220 20% 14%), hsl(220 25% 10%));
-    
-    --shadow-glow: 0 0 40px hsl(250 100% 65% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
-    
+    /* ✨ Balanced Gradients and Effects */
+    --gradient-primary: linear-gradient(135deg, hsl(10 85% 65%), hsl(5 75% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(15 90% 70%), hsl(10 85% 65%));
+    --gradient-subtle: linear-gradient(180deg, hsl(215 18% 15%), hsl(215 20% 11%));
+
+    --shadow-glow: 0 0 40px hsl(10 85% 65% / 0.25);
+    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.6);
+
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 220 25% 10%;
-    --foreground: 210 40% 98%;
+    --background: 215 20% 11%;
+    --foreground: 210 15% 97%;
 
-    --card: 220 20% 14%;
-    --card-foreground: 210 40% 98%;
+    --card: 215 18% 15%;
+    --card-foreground: 210 15% 97%;
 
-    --popover: 220 20% 14%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 215 18% 15%;
+    --popover-foreground: 210 15% 97%;
 
-    --primary: 250 100% 65%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 10 85% 65%;
+    --primary-foreground: 215 20% 11%;
 
-    --secondary: 200 100% 50%;
-    --secondary-foreground: 220 25% 10%;
+    --secondary: 5 75% 60%;
+    --secondary-foreground: 215 20% 11%;
 
-    --muted: 220 15% 25%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 215 12% 24%;
+    --muted-foreground: 215 8% 68%;
 
-    --accent: 280 100% 70%;
-    --accent-foreground: 220 25% 10%;
+    --accent: 15 90% 70%;
+    --accent-foreground: 215 20% 11%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 210 15% 97%;
 
-    --border: 220 15% 22%;
-    --input: 220 15% 22%;
-    --ring: 250 100% 65%;
+    --border: 215 15% 20%;
+    --input: 215 15% 20%;
+    --ring: 10 85% 65%;
   }
 }
 

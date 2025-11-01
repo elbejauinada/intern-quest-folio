@@ -5,33 +5,47 @@ import { ExternalLink, Github } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "Full-stack web application with user authentication, product management, and payment integration. Built with React, Node.js, and PostgreSQL.",
-      tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
+      title: "Student Academic Services Platform",
+      description:
+        "Full-stack web application with user authentication and students' documents requests management. Built with React, Node.js, and MySQL.",
+      tags: ["React", "Node.js", "MySQL"],
       liveLink: "#",
-      githubLink: "#"
+      githubLink: "#",
     },
     {
-      title: "Task Management System",
-      description: "Collaborative project management tool with real-time updates and team features. Implemented using React, Firebase, and Material-UI.",
-      tags: ["React", "Firebase", "Real-time", "Material-UI"],
-      liveLink: "#",
-      githubLink: "#"
+      title: "Car rental Platform",
+      description:
+        "Full-stack web application with user authentication and cars and reservations'requests management. Built with React, Django, and MongoDB.",
+      tags: ["React", "Django", "MongoDB", "Agile"],
+      liveLink:
+        "https://www.linkedin.com/posts/aya-touicha_dans-le-cadre-du-module-bases-de-donn%C3%A9es-ugcPost-7338469423319564288-odPP?utm_source=share&utm_medium=member_desktop&rcm=ACoAACfqhIcB4QTIwlI6gJJqNwfCmzgXPkWi4n0",
+      githubLink: "#",
     },
     {
-      title: "Weather Dashboard",
-      description: "Interactive weather application with location-based forecasts and data visualization. Integrated with external APIs for accurate weather data.",
-      tags: ["JavaScript", "API Integration", "Charts.js", "CSS"],
-      liveLink: "#",
-      githubLink: "#"
+      title: "Personal Finance Management Platform",
+      description:
+        "A budgeting and expense tracking system with user authentifcation,managing expenses and extracting data from invoices. Implemented using React, Springboot, and MySQL.",
+      tags: ["React", , "Springboot", "MySQL", "Agile"],
+      liveLink:
+        "https://www.linkedin.com/posts/nada-el-bejaui_dear-network-i-am-pleased-to-announce-my-activity-7345144281877143553-6f4b?utm_source=share&utm_medium=member_desktop&rcm=ACoAACfqhIcB4QTIwlI6gJJqNwfCmzgXPkWi4n0",
+      githubLink: "#",
     },
     {
-      title: "Machine Learning Model",
-      description: "Predictive model for data analysis using Python and scikit-learn. Includes data preprocessing, training, and visualization components.",
+      title: "Object Rental Platform",
+      description:
+        "Created an online rental system with Laravel, enabling categorized item posting and management under Agile workflows.",
+      tags: ["Laravel", "API Integration"],
+      liveLink: "#",
+      githubLink: "#",
+    },
+    {
+      title: "Machine Learning Model to predict Moroccan Outcomes",
+      description:
+        "Predictive model for data analysis using Python and scikit-learn. Includes data preprocessing, training, and visualization components and deploying through Streamlit.",
       tags: ["Python", "ML", "scikit-learn", "Data Analysis"],
       liveLink: "#",
-      githubLink: "#"
-    }
+      githubLink: "#",
+    },
   ];
 
   return (
@@ -48,7 +62,7 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
-            <Card 
+            <Card
               key={index}
               className="p-6 bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card group"
             >
@@ -58,10 +72,10 @@ const Projects = () => {
               <p className="text-muted-foreground mb-4 leading-relaxed">
                 {project.description}
               </p>
-              
+
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag, tagIndex) => (
-                  <span 
+                  <span
                     key={tagIndex}
                     className="px-3 py-1 text-xs rounded-full bg-muted text-muted-foreground"
                   >
@@ -71,26 +85,33 @@ const Projects = () => {
               </div>
 
               <div className="flex gap-3">
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  asChild
-                >
-                  <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="w-4 h-4" />
-                    Live Demo
-                  </a>
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  asChild
-                >
-                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                    <Github className="w-4 h-4" />
-                    Code
-                  </a>
-                </Button>
+                {/* ✅ Show only if liveLink is available */}
+                {project.liveLink && project.liveLink !== "#" && (
+                  <Button variant="outline" size="sm" asChild>
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Live Demo
+                    </a>
+                  </Button>
+                )}
+
+                {/* ✅ Show only if githubLink is available */}
+                {project.githubLink && project.githubLink !== "#" && (
+                  <Button variant="ghost" size="sm" asChild>
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="w-4 h-4" />
+                      Code
+                    </a>
+                  </Button>
+                )}
               </div>
             </Card>
           ))}

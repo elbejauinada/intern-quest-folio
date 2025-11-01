@@ -6,23 +6,26 @@ const About = () => {
     {
       icon: Code,
       title: "Technical Skills",
-      description: "Proficient in modern web technologies and software development practices"
+      description:
+        "Proficient in modern web technologies and software development practices",
     },
     {
       icon: Lightbulb,
       title: "Problem Solver",
-      description: "Analytical mindset with a passion for finding elegant solutions"
+      description:
+        "Analytical mindset with a passion for finding elegant solutions",
     },
     {
       icon: Users,
       title: "Team Player",
-      description: "Collaborative approach with excellent communication skills"
+      description: "Collaborative approach with excellent communication skills",
     },
     {
       icon: Rocket,
       title: "Quick Learner",
-      description: "Adaptable and eager to embrace new technologies and challenges"
-    }
+      description:
+        "Adaptable and eager to embrace new technologies and challenges",
+    },
   ];
 
   return (
@@ -33,14 +36,14 @@ const About = () => {
             About Me
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A dedicated software engineering student with a strong foundation in computer science 
-            and a drive to create impactful solutions.
+            A dedicated software engineering student with a strong foundation in
+            computer science and a drive to create impactful solutions.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {highlights.map((item, index) => (
-            <Card 
+            <Card
               key={index}
               className="p-6 bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card group"
             >
@@ -48,7 +51,9 @@ const About = () => {
                 <item.icon className="w-6 h-6 text-primary-foreground" />
               </div>
               <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-              <p className="text-sm text-muted-foreground">{item.description}</p>
+              <p className="text-sm text-muted-foreground">
+                {item.description}
+              </p>
             </Card>
           ))}
         </div>
@@ -56,14 +61,16 @@ const About = () => {
         <Card className="p-8 bg-gradient-subtle border-border">
           <h3 className="text-2xl font-bold mb-4">My Journey</h3>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            Currently pursuing my degree in Software Engineering, I've developed a strong foundation 
-            in programming, algorithms, and software architecture. My academic journey has been 
-            complemented by hands-on projects and a continuous drive to learn.
+            I am a final-year Computer Engineering student at ENSA Tétouan with
+            hands-on experience in full-stack development, Agile methodologies,
+            and database management. Skilled in building scalable applications
+            using React, Spring Boot, Laravel, and Java. Strong problem-solving
+            ability, adaptability, and proven record of improving system
+            efficiency through software solutions.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            I'm now seeking a PFE (Projet de Fin d'Études) internship where I can apply my knowledge, 
-            contribute to meaningful projects, and grow as a professional developer. I'm particularly 
-            interested in opportunities that challenge me to innovate and collaborate with experienced teams.
+            Seeking a Software Engineering Internship starting February 2026 to
+            apply technical expertise in a fast-paced environment.
           </p>
         </Card>
       </div>

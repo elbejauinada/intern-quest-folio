@@ -5,20 +5,20 @@ const Skills = () => {
   const skillCategories = [
     {
       category: "Languages",
-      skills: ["JavaScript", "TypeScript", "Python", "Java", "C++", "SQL"]
+      skills: ["JavaScript", "TypeScript", "Python", "Java", "PHP", "SQL"],
     },
     {
       category: "Frontend",
-      skills: ["React", "Vue.js", "HTML/CSS", "Tailwind CSS", "Redux", "Next.js"]
+      skills: ["React", "HTML/CSS", "Tailwind CSS", "Next.js"],
     },
     {
       category: "Backend",
-      skills: ["Node.js", "Express", "Django", "Spring Boot", "REST APIs", "GraphQL"]
+      skills: ["Node.js", "Django", "Spring Boot", "REST APIs,Laravel"],
     },
     {
       category: "Tools & Others",
-      skills: ["Git", "Docker", "PostgreSQL", "MongoDB", "AWS", "Agile/Scrum"]
-    }
+      skills: ["Git", "Docker", "MongoDB", "Agile/Scrum"],
+    },
   ];
 
   return (
@@ -35,14 +35,16 @@ const Skills = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {skillCategories.map((category, index) => (
-            <Card 
+            <Card
               key={index}
               className="p-6 bg-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-card"
             >
-              <h3 className="text-xl font-bold mb-4 text-primary">{category.category}</h3>
+              <h3 className="text-xl font-bold mb-4 text-primary">
+                {category.category}
+              </h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIndex) => (
-                  <Badge 
+                  <Badge
                     key={skillIndex}
                     variant="secondary"
                     className="px-3 py-1 text-sm bg-muted hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-default"
